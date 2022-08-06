@@ -1,0 +1,399 @@
+/*-------------------------------------------------------------
+* Project Name     : Irval (Promo site)
+* Author           : @kennen_web (telegram) / @kennen (YG)
+* Version          : 1.0.0 (release)
+*--------------------------------------------------------------
+*/
+
+@font-face {
+    font-family: "Pixel Georgia";
+    src: url("../fonts/18959.ttf");
+}
+
+@font-face {
+    font-family: "Pixel Times";
+    src: url("../fonts/18963.ttf");
+}
+
+@font-face {
+    font-family: "MKMEGADRIVE";
+    src: url("../fonts/19247.ttf");
+}
+
+/*----------- content ------------
+
+1. DEFAULT
+2. PRELOADER
+3. MAIN
+4. ANIMATION
+5. RESPONSIVE
+
+*/
+
+/*===============
+    1. DEFAULT
+=================*/
+
+@charset "UTF-8";
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pixel Georgia';
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/*=================
+    2. PRELOADER
+===================*/
+
+.preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 24, 36, 1);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 4s ease;
+}
+
+.loader {
+    animation: spin 1s linear infinite;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -5px;
+}
+
+.preloader.hide-loader {
+    opacity: 0;
+}
+
+.preloader.kill-loader {
+    display: none;
+}
+
+
+/*===============
+    3. MAIN
+=================*/
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.overlay::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: url(../img/overlay.png);
+    z-index: 2;
+}
+
+.overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1;
+}
+
+.video--media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 4s ease;
+    opacity: 0;
+}
+
+.show-content {
+    opacity: 1;
+}
+
+.content h1 {
+    font-size: 58px;
+    margin-bottom: 15px;
+}
+
+.content h1 img {
+    max-height: 35px;
+    margin-left: 5px;
+    margin-right: 7px;
+    margin-top: 5px;
+}
+
+.content .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .links a {
+    margin-right: 25px;
+}
+
+.content .links img {
+    max-width: 56px; 
+}
+
+.content .links a:hover {
+    transform: scale(.9);
+}
+
+.content .links a:last-child {
+    margin-right: 0;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 40px;
+}
+
+.footer a {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.footer a span:last-child {
+    color: #00BB58;
+    margin-left: 4px;
+}
+
+.footer a span::after {
+    transition: 1s ease;
+}
+
+.footer a:hover span::after {
+    content: 'ata';
+}
+
+.footer a:hover span:last-child::after {
+    content: 'tock';
+}
+
+.nick-name-ru {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+}
+
+/*==================
+    4. ANIMATION
+====================*/
+
+@keyframes spin {
+    0% {
+        box-shadow: 0px -30px #fff, 10px -30px #fff, 20px -20px #fff,
+            30px -10px #fff, 30px 0px #fff, 30px 10px #fff, 20px 20px #fff,
+            10px 30px #fff, 0px 30px transparent, -10px 30px transparent,
+            -20px 20px transparent, -30px 10px transparent, -30px 0px transparent,
+            -30px -10px transparent, -20px -20px transparent, -10px -30px transparent;
+    }
+
+    6.25% {
+        box-shadow: 0px -30px transparent, 10px -30px #fff, 20px -20px #fff,
+            30px -10px #fff, 30px 0px #fff, 30px 10px #fff, 20px 20px #fff,
+            10px 30px #fff, 0px 30px #fff, -10px 30px transparent,
+            -20px 20px transparent, -30px 10px transparent, -30px 0px transparent,
+            -30px -10px transparent, -20px -20px transparent, -10px -30px transparent;
+    }
+
+    12.5% {
+        box-shadow: 0px -30px transparent, 10px -30px transparent, 20px -20px #fff,
+            30px -10px #fff, 30px 0px #fff, 30px 10px #fff, 20px 20px #fff,
+            10px 30px #fff, 0px 30px #fff, -10px 30px #fff, -20px 20px transparent,
+            -30px 10px transparent, -30px 0px transparent, -30px -10px transparent,
+            -20px -20px transparent, -10px -30px transparent;
+    }
+
+    18.75% {
+        box-shadow: 0px -30px transparent, 10px -30px transparent,
+            20px -20px transparent, 30px -10px #fff, 30px 0px #fff, 30px 10px #fff,
+            20px 20px #fff, 10px 30px #fff, 0px 30px #fff, -10px 30px #fff,
+            -20px 20px #fff, -30px 10px transparent, -30px 0px transparent,
+            -30px -10px transparent, -20px -20px transparent, -10px -30px transparent;
+    }
+
+    25% {
+        box-shadow: 0px -30px transparent, 10px -30px transparent,
+            20px -20px transparent, 30px -10px transparent, 30px 0px #fff,
+            30px 10px #fff, 20px 20px #fff, 10px 30px #fff, 0px 30px #fff,
+            -10px 30px #fff, -20px 20px #fff, -30px 10px #fff, -30px 0px transparent,
+            -30px -10px transparent, -20px -20px transparent, -10px -30px transparent;
+    }
+
+    31.25% {
+        box-shadow: 0px -30px transparent, 10px -30px transparent,
+            20px -20px transparent, 30px -10px transparent, 30px 0px transparent,
+            30px 10px #fff, 20px 20px #fff, 10px 30px #fff, 0px 30px #fff,
+            -10px 30px #fff, -20px 20px #fff, -30px 10px #fff, -30px 0px #fff,
+            -30px -10px transparent, -20px -20px transparent, -10px -30px transparent;
+    }
+
+    37.5% {
+        box-shadow: 0px -30px transparent, 10px -30px transparent,
+            20px -20px transparent, 30px -10px transparent, 30px 0px transparent,
+            30px 10px transparent, 20px 20px #fff, 10px 30px #fff, 0px 30px #fff,
+            -10px 30px #fff, -20px 20px #fff, -30px 10px #fff, -30px 0px #fff,
+            -30px -10px #fff, -20px -20px transparent, -10px -30px transparent;
+    }
+
+    43.75% {
+        box-shadow: 0px -30px transparent, 10px -30px transparent,
+            20px -20px transparent, 30px -10px transparent, 30px 0px transparent,
+            30px 10px transparent, 20px 20px transparent, 10px 30px #fff,
+            0px 30px #fff, -10px 30px #fff, -20px 20px #fff, -30px 10px #fff,
+            -30px 0px #fff, -30px -10px #fff, -20px -20px #fff,
+            -10px -30px transparent;
+    }
+
+    50% {
+        box-shadow: 0px -30px transparent, 10px -30px transparent,
+            20px -20px transparent, 30px -10px transparent, 30px 0px transparent,
+            30px 10px transparent, 20px 20px transparent, 10px 30px transparent,
+            0px 30px #fff, -10px 30px #fff, -20px 20px #fff, -30px 10px #fff,
+            -30px 0px #fff, -30px -10px #fff, -20px -20px #fff, -10px -30px #fff;
+    }
+
+    56.25% {
+        box-shadow: 0px -30px #fff, 10px -30px transparent, 20px -20px transparent,
+            30px -10px transparent, 30px 0px transparent, 30px 10px transparent,
+            20px 20px transparent, 10px 30px transparent, 0px 30px transparent,
+            -10px 30px #fff, -20px 20px #fff, -30px 10px #fff, -30px 0px #fff,
+            -30px -10px #fff, -20px -20px #fff, -10px -30px #fff;
+    }
+
+    62.5% {
+        box-shadow: 0px -30px #fff, 10px -30px #fff, 20px -20px transparent,
+            30px -10px transparent, 30px 0px transparent, 30px 10px transparent,
+            20px 20px transparent, 10px 30px transparent, 0px 30px transparent,
+            -10px 30px transparent, -20px 20px #fff, -30px 10px #fff, -30px 0px #fff,
+            -30px -10px #fff, -20px -20px #fff, -10px -30px #fff;
+    }
+
+    68.75% {
+        box-shadow: 0px -30px #fff, 10px -30px #fff, 20px -20px #fff,
+            30px -10px transparent, 30px 0px transparent, 30px 10px transparent,
+            20px 20px transparent, 10px 30px transparent, 0px 30px transparent,
+            -10px 30px transparent, -20px 20px transparent, -30px 10px #fff,
+            -30px 0px #fff, -30px -10px #fff, -20px -20px #fff, -10px -30px #fff;
+    }
+
+    75% {
+        box-shadow: 0px -30px #fff, 10px -30px #fff, 20px -20px #fff,
+            30px -10px #fff, 30px 0px transparent, 30px 10px transparent,
+            20px 20px transparent, 10px 30px transparent, 0px 30px transparent,
+            -10px 30px transparent, -20px 20px transparent, -30px 10px transparent,
+            -30px 0px #fff, -30px -10px #fff, -20px -20px #fff, -10px -30px #fff;
+    }
+
+    81.25% {
+        box-shadow: 0px -30px #fff, 10px -30px #fff, 20px -20px #fff,
+            30px -10px #fff, 30px 0px #fff, 30px 10px transparent,
+            20px 20px transparent, 10px 30px transparent, 0px 30px transparent,
+            -10px 30px transparent, -20px 20px transparent, -30px 10px transparent,
+            -30px 0px transparent, -30px -10px #fff, -20px -20px #fff,
+            -10px -30px #fff;
+    }
+
+    87.5% {
+        box-shadow: 0px -30px #fff, 10px -30px #fff, 20px -20px #fff,
+            30px -10px #fff, 30px 0px #fff, 30px 10px #fff, 20px 20px transparent,
+            10px 30px transparent, 0px 30px transparent, -10px 30px transparent,
+            -20px 20px transparent, -30px 10px transparent, -30px 0px transparent,
+            -30px -10px transparent, -20px -20px #fff, -10px -30px #fff;
+    }
+
+    93.75% {
+        box-shadow: 0px -30px #fff, 10px -30px #fff, 20px -20px #fff,
+            30px -10px #fff, 30px 0px #fff, 30px 10px #fff, 20px 20px #fff,
+            10px 30px transparent, 0px 30px transparent, -10px 30px transparent,
+            -20px 20px transparent, -30px 10px transparent, -30px 0px transparent,
+            -30px -10px transparent, -20px -20px transparent, -10px -30px #fff;
+    }
+
+    100% {
+        box-shadow: 0px -30px #fff, 10px -30px #fff, 20px -20px #fff,
+            30px -10px #fff, 30px 0px #fff, 30px 10px #fff, 20px 20px #fff,
+            10px 30px #fff, 0px 30px transparent, -10px 30px transparent,
+            -20px 20px transparent, -30px 10px transparent, -30px 0px transparent,
+            -30px -10px transparent, -20px -20px transparent, -10px -30px transparent;
+    }
+}
+
+/*==================
+    5. RESPONSIVE
+====================*/
+
+@media (min-aspect-ratio: 16/9) {
+    .video--media {
+        height: 300%;
+        top: -100%;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .video--media {
+        width: 300%;
+        left: -100%;
+    }
+}
+
+@supports (object-fit: cover) {
+    .video--media {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
